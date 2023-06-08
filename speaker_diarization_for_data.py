@@ -23,7 +23,8 @@ def main(parser):
         "pyannote/speaker-diarization",
         use_auth_token="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",
     )
-
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    pipeline.to(device)
     diarization = pipeline(target_file, num_speakers=6)
 
     f = open("./result.txt", "w")
