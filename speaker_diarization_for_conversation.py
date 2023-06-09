@@ -22,10 +22,39 @@ def main(parser):
     y, sr = sf.read(args.data_in)
     f = open("./result.txt", "w")
     for turn, _, speaker in diarization.itertracks(yield_label=True):
-        print(f"start={turn.start:.1f}s stop={turn.end:.1f}s speaker_{speaker}", file=f)
+        print(
+            f"start={turn.start:.1f}s stop={turn.end:.1f}s speaker_{speaker}", file=f)
         s1, s2 = int(turn.start * sr), int(turn.end * sr)
         sf.write(
             args.data_out_dir
+            + "/"
+            + str(round(turn.start, 2))
+            + "~"
+            + str(round(turn.end, 2))
+            + ".wav",
+            y[s1:s2],
+            sr,
+            format="WAV",
+        )
+
+    f = open("./result.txt", "r")
+
+
+def speaker_diarization_for_conversation(data_in: str, data_out_dir: str):
+    pipeline = Pipeline.from_pretrained(
+        "pyannote/speaker-diarization",
+        use_auth_token="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",
+    )
+
+    diarization = pipeline(data_in)
+    y, sr = sf.read(data_in)
+    f = open("./result.txt", "w")
+    for turn, _, speaker in diarization.itertracks(yield_label=True):
+        print(
+            f"start={turn.start:.1f}s stop={turn.end:.1f}s speaker_{speaker}", file=f)
+        s1, s2 = int(turn.start * sr), int(turn.end * sr)
+        sf.write(
+            data_out_dir
             + "/"
             + str(round(turn.start, 2))
             + "~"
