@@ -65,7 +65,7 @@ def main(parser):
     lenth = [len(y0), len(y1), len(y2), len(y3), len(y4), len(y5)]
     i = lenth.index(max(lenth))
 
-    sf.write(target_file, yy[i], sr, format="WAV")
+    sf.write(target_file, yy[i], 16000, format="WAV")
 
 
 if __name__ == "__main__":

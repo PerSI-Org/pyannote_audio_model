@@ -33,7 +33,7 @@ def main(parser):
             + str(round(turn.end, 2))
             + ".wav",
             y[s1:s2],
-            sr,
+            16000,
             format="WAV",
         )
 

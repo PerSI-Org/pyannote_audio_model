@@ -1,7 +1,9 @@
-start=0.5s stop=0.6s speaker_SPEAKER_01
-start=0.5s stop=177.4s speaker_SPEAKER_00
-start=151.2s stop=151.4s speaker_SPEAKER_01
-start=163.2s stop=163.3s speaker_SPEAKER_01
-start=165.2s stop=166.3s speaker_SPEAKER_01
-start=171.4s stop=172.8s speaker_SPEAKER_01
-start=177.1s stop=177.4s speaker_SPEAKER_01
+start=0.5s stop=7.2s speaker_SPEAKER_00
+start=8.2s stop=19.9s speaker_SPEAKER_03
+start=23.0s stop=40.5s speaker_SPEAKER_01
+start=42.7s stop=59.1s speaker_SPEAKER_02
+start=60.8s stop=81.5s speaker_SPEAKER_00
+start=83.6s stop=90.2s speaker_SPEAKER_03
+start=92.2s stop=105.2s speaker_SPEAKER_01
+start=107.6s stop=122.1s speaker_SPEAKER_02
+start=123.1s stop=125.4s speaker_SPEAKER_02
