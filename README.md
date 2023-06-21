@@ -54,19 +54,23 @@ python3 spearker_diarization_for_conversation.py --data_in /home/hyeongikim/Desk
 
 저희는 먼저 휴대폰에 있는 통화녹음 5개를 가져와서 각각 wav 확장자로 바꾸어 통일 해주었습니다.
 
-![스크린샷 2023-05-08 오후 1.21.51.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c233e472-7799-4ff3-8c3c-e88eb758aa71/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-05-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.21.51.png)
+<img width="348" alt="스크린샷 2023-05-08 오후 1 21 51" src="https://github.com/PerSI-Org/pyannote_audio_model/assets/70681582/dd45d393-f212-4a36-a2a7-bd90871c49ff">
+
 
 그 후 모든 wav파일들을 통합하여 하나의 긴 음성파일을 만들었고 여기에는 총 6명의 음성이 들어있습니다.
 
-![스크린샷 2023-05-08 오후 1.33.34.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63587c30-248b-4a8c-9545-052bc4313b97/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-05-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.33.34.png)
+<img width="344" alt="스크린샷 2023-05-08 오후 1 33 34" src="https://github.com/PerSI-Org/pyannote_audio_model/assets/70681582/f0a47401-a4ce-479d-8a31-4b0090b2d3c1">
+
 
 이후 pyannote audio 라이브러리의 사전 학습된 모델을 이용하여 speaker diarization을 실시하였고 총 6명의 음성으로 구분된 결과가 나왔습니다. pyannote 오디오 모델은 lstm 시계열 딥러닝 모델을 기반으로 이루어져 있습니다. pyannote 오디오 모델을 사용하면 통화 녹음에서 목소리의 feature에 따라 음성을 추출할 수 있습니다. 추출된 해당 음성을 비슷한 feature 끼리 묶는 방식으로 발화자들을 구분하여 보여주게 됩니다.  
 
-![스크린샷 2023-05-08 오후 4.40.19.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25d573a6-f9ae-4b3e-86e8-539aa2b09912/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-05-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.40.19.png)
+<img width="395" alt="스크린샷 2023-05-08 오후 4 40 19" src="https://github.com/PerSI-Org/pyannote_audio_model/assets/70681582/e0e657fa-bb03-4a06-ab74-698f0a1f7f7f">
+
 
 그래서 하나의 음성파일에서 이렇게 구분되어진 스피커들의 feature 정보를 이용하여 음성파일에서 같은 스피커로 분류된 구간을 그 스피커의 소리만 따로 추출하여 다시 하나의 음성파일들로 만들어 봤습니다.
 
-![스크린샷 2023-05-08 오후 4.43.16.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/79bdf460-e647-4052-ac4f-9b00b0d22678/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-05-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.43.16.png)
+<img width="122" alt="스크린샷 2023-05-08 오후 4 43 16" src="https://github.com/PerSI-Org/pyannote_audio_model/assets/70681582/19f18866-6694-43ac-adf4-f3de8c88d250">
+
 
 그 결과 목표했던 사람의 결합되어 추출된 음성파일은 귀로 들어도 한 사람의 소리가 들렸습니다.
 
